@@ -1,19 +1,15 @@
-# GTX USERSCAN 🔍
+# GTX-USERCAN
 
-> 🚨 Bu araç yalnızca eğitim amaçlı geliştirilmiştir. Herhangi bir yasa dışı kullanımda geliştirici sorumlu tutulamaz.
+🎯 Türk yapımı sosyal medya kullanıcı adı tarayıcı aracıdır. Belirli bir kullanıcı adının Instagram, Twitter, GitHub, TikTok gibi platformlarda kullanılıp kullanılmadığını gösterir.
 
-## 📌 Özellikler
+✅ Tamamen eğitim amaçlıdır.  
+👤 Geliştirici: GtxAnqel  
+🌐 Desteklenen Platformlar: Instagram, GitHub, Twitter, YouTube, TikTok, Reddit, Kick, Facebook  
+🧪 Test Edildi: Termux & Linux shell
 
-- Girilen kullanıcı adının sosyal medya platformlarında var olup olmadığını kontrol eder.
-- Instagram, Twitter, GitHub, TikTok, Reddit, Facebook, YouTube, Kick desteklenmektedir.
-- Renkli arayüz, hızlı tarama, lolcat desteği.
-- Tamamen Türkçe ve yerli bir araçtır.
-- Kullanımı kolay CLI (terminal) arayüzü.
-
-## 🛠️ Kurulum
-
+## Kurulum
 ```bash
-git clone https://github.com/GtxAnqel/GTX-OS-NT.git
-cd GTX-OS-NT
-chmod +x GTX-AÇIL 
-./GTX-AÇIL
+git clone https://github.com/GtxAnqel/GTX-USERCAN
+cd GTX-USERCAN
+chmod +x gtx-userscan.sh
+./gtx-userscan.sh
