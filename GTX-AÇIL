@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# ASCII Logo ve Bilgi
+clear
+figlet "GTX USERSCAN" | lolcat
+
+echo -e "\033[36mBu araç GtxAnqel tarafından geliştirilmiştir."
+echo -e "Tamamen yerli ve Türkçe hazırlanmıştır. Eğitim amaçlıdır.\033[0m"
+echo "────────────────────────────────────────────────────"
+echo ""
+
+# Kullanım kılavuzu fonksiyonu
+function kullanici_kilavuzu {
+    echo "╭──────────────── KULLANIM KILAVUZU ───────────────╮"
+    echo "│ Bu araç girilen kullanıcı adının popüler         │"
+    echo "│ sosyal medya platformlarında kullanılıp          │"
+    echo "│ kullanılmadığını kontrol eder.                   │"
+    echo "│                                                  │"
+    echo "│ Örnek Kullanım:                                  │"
+    echo "│ ➤ Kullanıcı Adı: gtxangel                        │"
+    echo "│ ➤ Platformlarda arama yapar                      │"
+    echo "│                                                  │"
+    echo "│ Komutlar:                                        │"
+    echo "│ ➤ GTX-MN : Kullanım kılavuzunu gösterir          │"
+    echo "╰──────────────────────────────────────────────────╯"
+    echo ""
+}
+
+# Platformlar listesi
+platformlar=(
+    "Instagram:https://www.instagram.com/"
+    "Twitter:https://www.twitter.com/"
+    "GitHub:https://www.github.com/"
+    "Facebook:https://www.facebook.com/"
+    "TikTok:https://www.tiktok.com/@"
+    "Reddit:https://www.reddit.com/user/"
+    "YouTube:https://www.youtube.com/@"
+    "Kick:https://kick.com/"
+)
+
+# Kullanıcıdan giriş alma
+read -p "🔍 Sorgulamak istediğiniz kullanıcı adı ya da komut (GTX-MN): " kullanici
+
+if [[ "$kullanici" == "GTX-MN" ]]; then
+    kullanici_kilavuzu
+    exit 0
+fi
+
+# Platformları kontrol etme
+echo -e "\033[33mSosyal medya taraması başlatılıyor...\033[0m"
+echo ""
+
+for site in "${platformlar[@]}"; do
+    isim=$(echo "$site" | cut -d":" -f1)
+    url=$(echo "$site" | cut -d":" -f2-)
+    tam_url="${url}${kullanici}"
+
+    http_status=$(curl -s -o /dev/null -w "%{http_code}" "$tam_url")
+    
+    if [[ "$http_status" == "200" || "$http_status" == "302" ]]; then
+        echo -e "\033[32m[✓] $isim bulundu: $tam_url\033[0m"
+    else
+        echo -e "\033[31m[✗] $isim bulunamadı.\033[0m"
+    fi
+    sleep 0.2
+done
+
+echo ""
+echo -e "\033[36mGTX USERSCAN tarama tamamlandı.\033[0m"
