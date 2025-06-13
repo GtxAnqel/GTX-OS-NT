@@ -11,5 +11,5 @@
 ```bash
 git clone https://github.com/GtxAnqel/GTX-USERCAN
 cd GTX-USERCAN
-chmod +x gtx-userscan.sh
-./gtx-userscan.sh
+chmod +x GTX-AÇIL 
+./GTX-AÇIL
